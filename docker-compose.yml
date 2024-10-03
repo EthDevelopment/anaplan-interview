@@ -2,15 +2,12 @@ version: "3.5"
 
 services:
   mysql-db:
-    image: arm64v8/mysql:8.0
+    image: mysql:8.0
     ports:
       - 3306:3306
     environment:
-      # MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: test123
       MYSQL_DATABASE: definitions
-      MYSQL_PORT: 3306
-
     volumes:
       - ./database:/docker-entrypoint-initdb.d:/var/lib/mysql
     healthcheck:
@@ -29,11 +26,10 @@ services:
         condition: service_healthy
     ports:
       - "8080:8080"
-      # - "3306:3306"
     networks:
       - spring-boot-app
     environment:
-      MYSQL_HOST: docker.for.mac.host.internal
+      MYSQL_HOST: mysql-db
 
   api:
     image: nginx:latest
