@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to MagiDash Corp - Our mission is to empower people in corporations to have one place to visualise any data relevant to their job. As such, we create rich and flexible dashboarding tools which will integrate seamlessly with any data source and present the data in many different formats. 
+Welcome to MagiDash Corp - Our mission is to empower people in corporations to have one place to visualise any data relevant to their job. As such, we create rich and flexible dashboarding tools which will integrate seamlessly with any data source and present the data in many different formats.
 
 To get the project started we want to be able to show a list of dummy dashboards to users so that we can get a feel for if the clients like the concepts in a demo form.
 
@@ -13,6 +13,7 @@ Provided is a docker based environment that uses [docker-compose](https://docs.d
 Your task is to build an api service which implements a `/dashboards` endpoint that returns a list of dashboard objects retrieved from the mysql database provided.
 
 The expected format of the dashboard object should be roughly
+
 ```json
 {
   "id": <Long>,
@@ -52,3 +53,13 @@ scripts will be run automatically.
 To apply any script changes when the database is already running you will need to stop the running database container
 and destroy it. Running `docker-compose down` will stop the environment and destroy the containers for you, the next
 time you bring the environment up the containers will be created again.
+
+### Instructions
+
+## To Run
+
+docker compose build --no-cache
+
+## To Build
+
+docker-compose down --remove-orphans && ./gradlew clean build && docker-compose build --no-cache && docker-compose up --force-recreate

@@ -1,0 +1,20 @@
+meta {
+  name: NGINX DELETE
+  type: http
+  seq: 6
+}
+
+delete {
+  url: http://localhost/dashboards/5
+  body: json
+  auth: none
+}
+
+body:json {
+    {
+      "id": 5,
+      "createdAt": "2024-10-06T21:35:00.000+00:00",
+      "updatedAt": "2024-10-06T21:35:00.000+00:00",
+      "title": "Swish"
+    }
+}

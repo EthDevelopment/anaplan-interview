@@ -1,11 +1,15 @@
 USE definitions;
 
 CREATE TABLE IF NOT EXISTS `dashboards` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) NOT NULL,
-  `createdAt` TIMESTAMP NULL DEFAULT NULL,
-  `updatedAt` TIMESTAMP NULL DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-
+-- Inserting data with values for the title column
+INSERT INTO dashboards (title) VALUES
+('Dashboard 1'),
+('Dashboard 2'),
+('Dashboard 3');
